@@ -47,6 +47,7 @@ covering tables such as SALES_HISTORY, INVDET, INVHEAD, TAKINGS, PRODUCT and PAY
 - **Top products:** Found the best-selling products and services — for example cigarettes, off-licence sales and PayPoint services.
 - **Underperformers:** Identified slow-moving products that have been sitting in the shop for a long time and may not be worth restocking.
 - **Profit:** Can now see which months and products drive the most profit, and what factors affect it.
+- **Gross_profit** while doing sql i have folunt out that the gross_profit is actually the percentage.
 
 ## Dashboard & Charts
 
