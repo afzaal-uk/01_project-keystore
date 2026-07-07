@@ -29,3 +29,7 @@ analysis.
 - `15_profit_per_year.sql` — total profit per year, calculated as (sell − cost) × quantity.
 
 *(More queries will be added as the analysis develops.)*
+
+## Keyfinding
+
+-  I found the sales table blends retail product sales with service transactions such as PayPoint bill payments, which carry commission-style economics rather than retail margins. This matters because including them unadjusted can distort revenue and margin figures — so I flagged that product-level analysis may need to exclude service lines.
