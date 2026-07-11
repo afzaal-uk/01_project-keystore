@@ -34,17 +34,3 @@ date (`S_DATE`), product (`EANCODE`, `S_DESC`), quantity (`QTY`), sell price
   unadjusted can distort revenue and margin figures, so product-level analysis may need
   to exclude service lines.
 
-## Queries in this folder
-
-- `01_Extract Profit using sell-cost.sql` — total profit per year, calculated as (sell − cost) × quantity.
-- `02_Profit_margin_%.sql` — overall profit margin for the business as a percentage.
-- `03_total_sales_per_month.sql` — total sales per month, ranked to find the best and worst months.
-- `04_total_sales_trend_per_month.sql` — monthly sales in calendar order, showing the yearly trend.
-- `05_top 20 best-selling products by revenue.sql` — the highest-revenue products.
-- `07_top_20_products_by_profit.sql` — the most profitable products (a different ranking to revenue).
-- `08_slow_moving_products.sql` — genuine slow-moving products, filtered to exclude non-product lines.
-- `09_big units but small profit.sql` — high-volume, low-profit products ("busy fools").
-- `10_profit_by_category.sql` — total profit by product category (PRODGRP1).
-- `14_products_sold_at_a_loss.sql` — products sold below cost, identified by negative profit.
-
-*(More queries will be added as the analysis develops.)*
