@@ -8,7 +8,8 @@ A retail sales analysis built with **Python, SQL, Excel and Power BI**.
 Created by a recent Data Science graduate as a hands-on, end-to-end analytics project.
 
 See the full [30-question analysis plan](business-questions.md) for the business
-questions driving this project.
+questions driving this project, and the [`sql/`](sql/) folder for the queries and
+detailed findings.
 
 ---
 
@@ -18,9 +19,9 @@ This project takes real retail EPOS data — invoices, takings, product records
 and sales history — and turns it into clear business insights. The goal was to answer
 questions a shop owner actually cares about:
 
-- How are sales trending month to month?
-- Which products make the most money, and which lose money?
 - Where is the profit really coming from?
+- Which products make the most money, and which lose money?
+- How are sales trending, and how concentrated is the business?
 
 ## The Data
 
@@ -34,8 +35,8 @@ The core analysis focuses on the 2025 trading year (SALES_HISTORY holds ~304,875
 
 ## Tools Used
 
-- **Python** (pandas, matplotlib) — loading, cleaning, analysis and charts
 - **SQL** (DBeaver / Firebird, and MySQL Workbench) — querying the source database
+- **Python** (pandas, matplotlib) — loading, cleaning, analysis and charts
 - **Excel** — multi-sheet summary reports
 - **Power BI** — interactive dashboard
 
@@ -44,25 +45,35 @@ The core analysis focuses on the 2025 trading year (SALES_HISTORY holds ~304,875
 1. **Loaded and combined** multiple CSV files into single datasets using `glob` and `pandas`.
 2. **Cleaned the data** — handled missing values, removed duplicates, and fixed date
    and number formats so the data was reliable to analyse.
-3. **Queried with SQL** — answered real business questions directly against the Firebird
-   database (see the `sql/` folder).
-4. **Analysed and summarised** — monthly and yearly trends, product rankings and profit
-   breakdowns, exported to a multi-sheet Excel report.
+3. **Queried with SQL** — answered ~28 real business questions against the Firebird
+   database, from basic aggregation up to window functions and subqueries (see the
+   [`sql/`](sql/) folder).
+4. **Analysed and summarised** — trends, product rankings and profit breakdowns,
+   exported to a multi-sheet Excel report.
 5. **Visualised the results** — charts in Python and an interactive Power BI dashboard.
 
-## Key Findings
+## Headline Findings
 
-- **Gross profit was misleading.** While working in SQL I discovered the `GROSS_PROFIT`
-  column actually stores a **margin percentage**, not a monetary value — so summing it
-  would be wrong. I calculated true profit as `(SELL - COST) * QTY` instead.
-- **Overall margin ≈ 20%** — out of every £1 taken, about 20p is profit.
-- **Revenue can mislead:** services like PayPoint and the National Lottery top the
-  revenue list but earn almost no profit (commission only). True earners appear only
-  when ranking by profit.
-- **Fresh food is the profit engine:** Bakery and Catering drive the most profit by far.
-- **Sales are fairly steady year-round**, with a mild May peak and October dip.
-- **Some products sell at a loss** (below cost) — worth reviewing as pricing errors or
-  promotions.
+- **Gross profit was misleading.** The `GROSS_PROFIT` column actually stores a **margin
+  percentage**, not a monetary value — so summing it would be wrong. I validated this
+  against sample rows and calculated true profit as `(SELL - COST) * QTY` instead.
+- **Revenue ≠ profit.** Services like PayPoint top the revenue list (~£2m) but earn almost
+  nothing (~£10k); Bakery earns similar revenue but ~80× more profit. Managing by revenue
+  would badly mislead.
+- **Profit is highly concentrated** — the top 10 products generate ~60% of all profit,
+  and dropping the 500 weakest products would cost under 0.01% of the business. The range
+  is heavily bloated.
+- **Fresh food is the profit engine** — Bakery and Catering drive the most profit by far.
+- **Annual turnover ≈ £14.9m**, fairly steady month to month (mild May peak, October dip),
+  with Friday and Saturday the busiest days.
+- **Five products are the reliable core** — appearing in the top 10 *every single month*.
+
+## Skills Demonstrated
+
+- **SQL:** joins (validated), subqueries, and window functions (`ROW_NUMBER`, `RANK`,
+  `LAG`, `SUM OVER`); careful data validation before reporting.
+- **Python:** multi-file loading and cleaning with pandas; charting with matplotlib.
+- **Power BI & Excel:** dashboarding and multi-sheet reporting.
 
 ## Dashboard & Charts
 
@@ -72,8 +83,8 @@ The core analysis focuses on the 2025 trading year (SALES_HISTORY holds ~304,875
 
 ## Project Structure
 
+- `sql/` — SQL queries answering business questions (with a detailed findings README)
 - `python/` — analysis scripts
-- `sql/` — SQL queries answering business questions
 - `images/` — saved charts and dashboard screenshots
 - `excel/` — summary reports
 - `powerbi/` — Power BI file
