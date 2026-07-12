@@ -1,84 +1,52 @@
-# 01_project-keystore
+## Easy — "how are we doing?" (Q1–10)
 
-Sales analysis using Python, SQL, Excel and Power BI
+1. "What was our total profit for the year?"
+2. "What's our overall profit margin — out of every pound we take, how much do we keep?"
+3. "Which months were our best and worst for sales?"
+4. "Show me the sales trend across the year, month by month."
+5. "What are our top 20 best-selling products by revenue?"
+6. "Which products actually make us the most profit — not just the most cash?"
+7. "Which products are barely selling — our slow movers we could drop?"
+8. "Which products sell in high volume but earn us little — the 'busy fools'?"
+9. "Which categories or departments drive the most profit?"
+10. "Are we selling anything at a loss — below what it cost us?"
 
-# Retail Sales Analysis — Keystore Project
+## Medium — "let's dig deeper" (Q11–20)
 
-A retail sales analysis built with **Python, SQL, Excel and Power BI**.
-Created by a recent Data Science graduate as a hands-on, end-to-end analytics project.
+11. "Bakery is our biggest category — give me the top 10 products within Bakery."
+12. "Which products have the best profit margin %, ignoring one-off flukes?"
+13. "Which products spike in particular months or seasons?"
+14. "What's the average sale value in each department?"
+15. "Which days of the week are our busiest? I need to plan staff rotas."
+16. "How much are we losing to reductions and markdowns?"
+17. "Show me our cheap items — under £2 — that still make good profit."
+18. "For each category, show me revenue AND profit side by side."
+19. "How many different products do we actually carry in each department?"
+20. "Which months beat our yearly average for sales?"
 
-See the full [30-question analysis plan](business-questions.md) for the business
-questions driving this project.
+## Hard — "the strategic questions" (Q21–30)
 
----
-
-## Overview
-
-This project takes real retail EPOS data — invoices, takings, product records
-and sales history — and turns it into clear business insights. The goal was to answer
-questions a shop owner actually cares about:
-
-- How are sales trending month to month?
-- Which products make the most money, and which lose money?
-- Where is the profit really coming from?
-
-## The Data
-
-The data was extracted from a **Firebird database** and exported as CSV files,
-covering tables such as SALES_HISTORY, INVDET, INVHEAD, TAKINGS, PRODUCT and PAYMENT.
-The core analysis focuses on the 2025 trading year (SALES_HISTORY holds ~304,875 rows).
-
-> **Note:** The raw sales data is confidential business data and is **not** included in
-> this repository. The code, queries, charts and dashboard shown here use it for
-> analysis only.
-
-## Tools Used
-
-- **Python** (pandas, matplotlib) — loading, cleaning, analysis and charts
-- **SQL** (DBeaver / Firebird, and MySQL Workbench) — querying the source database
-- **Excel** — multi-sheet summary reports
-- **Power BI** — interactive dashboard
-
-## What I Did
-
-1. **Loaded and combined** multiple CSV files into single datasets using `glob` and `pandas`.
-2. **Cleaned the data** — handled missing values, removed duplicates, and fixed date
-   and number formats so the data was reliable to analyse.
-3. **Queried with SQL** — answered real business questions directly against the Firebird
-   database (see the `sql/` folder).
-4. **Analysed and summarised** — monthly and yearly trends, product rankings and profit
-   breakdowns, exported to a multi-sheet Excel report.
-5. **Visualised the results** — charts in Python and an interactive Power BI dashboard.
-
-## Key Findings
-
-- **Gross profit was misleading.** While working in SQL I discovered the `GROSS_PROFIT`
-  column actually stores a **margin percentage**, not a monetary value — so summing it
-  would be wrong. I calculated true profit as `(SELL - COST) * QTY` instead.
-- **Overall margin ≈ 20%** — out of every £1 taken, about 20p is profit.
-- **Revenue can mislead:** services like PayPoint and the National Lottery top the
-  revenue list but earn almost no profit (commission only). True earners appear only
-  when ranking by profit.
-- **Fresh food is the profit engine:** Bakery and Catering drive the most profit by far.
-- **Sales are fairly steady year-round**, with a mild May peak and October dip.
-- **Some products sell at a loss** (below cost) — worth reviewing as pricing errors or
-  promotions.
-
-## Dashboard & Charts
-
-![Power BI Dashboard](images/dashboard.png)
-
-*Interactive Power BI dashboard summarising sales and profit.*
-
-## Project Structure
-
-- `python/` — analysis scripts
-- `sql/` — SQL queries answering business questions
-- `images/` — saved charts and dashboard screenshots
-- `excel/` — summary reports
-- `powerbi/` — Power BI file
-- `business-questions.md` — the 30-question analysis plan
+21. "What's the single best-selling product in EACH category?"
+22. "What share of our total profit comes from our top 10 products? Is it really 80/20?"
+23. "Show me month-on-month growth — are we going up or down each month?"
+24. "Which suppliers or manufacturers give us the best margins?"
+25. "If we dropped the bottom 10% of our products, how much would we actually lose?"
+26. "Show me products ranked within each category — the full 1st, 2nd, 3rd pecking order."
+27. "Show me our cumulative sales through the year — building toward the annual figure."
+28. "Which products are in the top 10 EVERY month — the ones I can always count on?"
+29. "Compare each month against the same month last year — are we up or down year-on-year?"
+30. "Flag any statistically unusual sales days — anomalies worth investigating."
 
 ---
 
-*Built as part of my ongoing learning as a Data Science graduate seeking a Data Analyst role.*
+## Notes on outcomes
+
+- **Q1–23, 25–28** were answered directly with SQL.
+- **Q24 (supplier margins)** and **Q29 (year-on-year)** became *documented data
+  limitations* — the reference data (manufacturer table; multiple years) wasn't
+  available in a single database. Identifying and reporting these honestly is itself
+  part of the analyst's job.
+- **Q30 (anomaly detection)** bridges naturally from SQL into Python, where proper
+  statistical methods can flag unusual days across the full history.
+
+*Built as part of the Keystore retail analysis portfolio project.*
