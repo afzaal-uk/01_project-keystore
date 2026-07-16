@@ -1,0 +1,7 @@
+SELECT 
+	prodgrp1 AS category,
+	sum(promo_qty) AS promo_units
+FROM SALES_HISTORY 
+WHERE PROMO_QTY > 0
+GROUP BY PRODGRP1 
+ORDER BY PROMO_UNITS DESC;
