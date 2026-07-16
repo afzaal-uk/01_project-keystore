@@ -76,7 +76,6 @@ The core analysis focuses on the 2025 trading year (SALES_HISTORY holds ~304,875
 
 ![Power BI Dashboard Overview](images/dashboard1.png)
 
-![Power BI Product Performance](images/dashboard2.png)
 
 *Interactive Power BI dashboard summarising sales and profit.*
 
