@@ -7,7 +7,7 @@ Sales analysis using Python, SQL, Excel and Power BI
 A retail sales analysis built with **Python, SQL, Excel and Power BI**.
 Created by a recent Data Science graduate as a hands-on, end-to-end analytics project.
 
-See the full [30-question analysis plan](business-questions.md) for the business
+See the full [28-question analysis plan](business-questions.md) for the business
 questions driving this project, and the [`sql/`](sql/) folder for the queries and
 detailed findings.
 
