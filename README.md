@@ -74,14 +74,17 @@ The core analysis focuses on the 2025 trading year (SALES_HISTORY holds ~304,875
 
 ## Dashboard & Charts
 
-![Power BI Dashboard](PowerBI/PowerBI%201.png)
+![Power BI Dashboard Overview](images/dashboard1.png)
+
+![Power BI Product Performance](images/dashboard2.png)
 
 *Interactive Power BI dashboard summarising sales and profit.*
 
 ## Project Structure
 
 - `sql/` — SQL queries answering business questions (with a detailed findings README)
-- `PowerBI/` — Power BI dashboard file and screenshots
+- `images/` — dashboard screenshots
+- `PowerBI/` — Power BI dashboard file
 - `python/` — reserved for the upcoming Python phase (forecasting, anomaly detection,
   market basket analysis, clustering)
 - `business-questions.md` — the 28-question analysis plan
