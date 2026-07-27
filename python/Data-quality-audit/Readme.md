@@ -4,90 +4,45 @@
 
 This project is a Python data quality audit built using real retail EPOS sales data.
 
-The purpose of this script is to check the quality of the data before using it for further analysis, cleaning, reporting, or machine learning.
+The purpose of this script is to check the quality of the data before using it for further analysis, cleaning, Power BI reporting, or machine learning.
 
-The dataset contains more than 300,000 sales records and 37 columns.
-
-The original raw data is not uploaded to GitHub because it comes from a real retail business.
+The original raw data is not included in this repository because it comes from a real retail business.
 
 ---
 
-## What This Script Does
+## What the Script Does
 
-The Python script automatically checks the dataset for:
+The Python script automatically:
 
-- Dataset size and memory usage
-- Missing values
-- Missing value percentage
-- Duplicate rows
-- Column data types
-- Unique values
-- Possible incorrect data types
-- Numeric outliers using the IQR method
-- Negative numeric values for review
-- Overall data quality score
-
-After completing the checks, the script creates an Excel report with the results.
-
----
-
-## Python Skills Used
-
-This project uses:
-
-- Pandas
-- NumPy
-- Pathlib
-- Functions
-- Loops
-- Dictionaries and lists
-- Exception handling
-- Logging
-- Data type validation
-- IQR outlier detection
-- Excel report generation
+- Loads the sales data
+- Checks the size and structure of the dataset
+- Finds missing values
+- Finds duplicate rows
+- Creates a profile for each column
+- Checks data types
+- Flags possible numeric columns
+- Detects unusual numeric values using the IQR method
+- Checks negative numeric values for review
+- Calculates a simple data quality score
+- Creates an Excel report with the results
 
 ---
 
-## Project Process
+## Project Files
 
-Raw EPOS Data  
-↓  
-Load Data  
-↓  
-Dataset Overview  
-↓  
-Missing Value Check  
-↓  
-Duplicate Check  
-↓  
-Column Profile  
-↓  
-Data Type Validation  
-↓  
-Outlier Detection  
-↓  
-Business Rule Check  
-↓  
-Data Quality Score  
-↓  
-Excel Report
+### Python Script
 
----
+[`01_retail_data_quality_audit.py`](01_retail_data_quality_audit.py)
 
-## Files
+This is the main Python script used to run the complete data quality audit.
 
-### `01_retail_data_quality_audit.py`
+### Excel Report
 
-This is the main Python script.
+[`retail_data_quality_report.xlsx`](retail_data_quality_report.xlsx)
 
-It reads the sales data, runs all data quality checks, and creates the final Excel report.
+Click the file above to open the generated Excel audit report.
 
-### `retail_data_quality_report.xlsx`
-
-This is the output created by the Python script.
-
-The Excel file contains separate sheets for:
+The workbook contains separate sheets for:
 
 - Missing Values
 - Duplicate Rows
@@ -100,38 +55,107 @@ The Excel file contains separate sheets for:
 
 ---
 
-## Results
+## Dataset
 
-The audit was successfully run on more than 300,000 retail sales records.
+The audit was tested on a real EPOS retail sales dataset containing more than 300,000 records.
 
-The script found missing data in some columns, checked duplicate records, analysed column types, detected possible outliers, and created a complete Excel audit report.
+The dataset contains information such as:
 
-The purpose of the audit is to identify possible data quality problems. It does not automatically remove or change the original data.
+- Product descriptions
+- Product groups
+- Quantity
+- Cost
+- Selling price
+- Gross profit
+- VAT
+- Retail price
+- Product and transaction information
 
----
-
-## Screenshots
-
-### Data Quality Audit Results
-
-![Data Quality Audit Results](Screenshot%202026-07-27%20101103.png)
-
-### Excel Audit Report
-
-![Excel Audit Report](Screenshot%202026-07-27%20101341.png)
+The original dataset is not uploaded to GitHub to protect business data.
 
 ---
 
-## Important Note
+## Missing Value Analysis
 
-The original dataset is not included in this repository because it contains real business data.
+The script checks every column and calculates both the number and percentage of missing values.
 
-The audit identifies possible problems for further investigation. For example, an outlier or negative value is not automatically considered an error because it may represent valid retail activity.
+![Missing Value Report](missing_values_report.png)
+
+This helps identify columns that may need further investigation or cleaning.
+
+---
+
+## Outlier Detection
+
+The script uses the IQR method to find unusually high or low values in numeric columns.
+
+![Outlier Report](outlier_report.png)
+
+An outlier is only flagged for investigation. It is not automatically treated as incorrect data.
+
+---
+
+## Data Quality Process
+
+The script follows this process:
+
+```text
+Raw EPOS Sales Data
+        |
+        v
+Load Data
+        |
+        v
+Dataset Overview
+        |
+        v
+Missing Values
+        |
+        v
+Duplicate Check
+        |
+        v
+Column Profile
+        |
+        v
+Data Type Check
+        |
+        v
+Outlier Detection
+        |
+        v
+Business Rule Check
+        |
+        v
+Data Quality Score
+        |
+        v
+Excel Audit Report
+```
+
+---
+
+## Tools Used
+
+- Python
+- Pandas
+- NumPy
+- Pathlib
+- Logging
+- Excel
+
+---
+
+## Why I Built This
+
+Before analysing a large dataset, I wanted to understand its quality first.
+
+Instead of checking the data manually, I built one Python script that can run different quality checks and create one Excel report.
+
+This also gives me a reusable starting point for the next stage of the project.
 
 ---
 
 ## Next Step
 
-The next part of this project is a Python data cleaning pipeline.
-
-The cleaning pipeline will use the results from this audit to clean and prepare the data while keeping the original raw data unchanged.
+The next part of the Python project will focus on cleaning and preparing the retail data based on the problems found during this audit.
