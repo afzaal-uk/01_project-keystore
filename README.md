@@ -19,6 +19,8 @@ This project takes real retail EPOS data — invoices, takings, product records
 and sales history — and turns it into clear business insights. The goal was to answer
 questions a shop owner actually cares about:
 
+![Power BI Dashboard Overview](images/dashboard1.png)
+
 - Where is the profit really coming from?
 - Which products make the most money, and which lose money?
 - How are sales trending, and how concentrated is the business?
