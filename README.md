@@ -19,7 +19,7 @@ This project takes real retail EPOS data — invoices, takings, product records
 and sales history — and turns it into clear business insights. The goal was to answer
 questions a shop owner actually cares about:
 
-![10 years RAW data overview](images/Raw data.png)
+![10 years RAW data overview](images/Raw-data.png)
 
 - Where is the profit really coming from?
 - Which products make the most money, and which lose money?
