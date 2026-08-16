@@ -81,11 +81,11 @@ These files provide a clean and structured dataset ready for further forecasting
 
 ### Forecast Preparation Overview
 
-![Sales Forecast Overview](forecast1.png)
+![Sales Forecast Overview](Sales_forecast_1.png)
 
 ### Sales Trends and Forecast Features
 
-![Sales Forecast Features](forecast2.png)
+![Sales Forecast Features](Sales_forecast_2.png)
 
 ## Technologies Used
 
