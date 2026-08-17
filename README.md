@@ -1,44 +1,42 @@
 # My Repo Structure Overview
-                    EPOS FIREBIRD DATABASE
+                    EPOS FIREBIRD Dataset
                               │
                               ▼
-                           DBeaver
+                      DBeaver(Software)
                               │
                               ▼
                        152 CSV EXTRACTS
                               │
                               ▼
-                        RELEVANT DATASET
+                      Picked Relevent Data
                               │
-                    ┌─────────┴─────────┐
-                    ▼                   ▼
-              ┌──────────┐        ┌──────────┐
-              │   SQL    │        │  PYTHON  │
-              │ ANALYSIS │        │ ANALYSIS │
-              └────┬─────┘        └────┬─────┘
-                   │                   │
-                   │              Data Quality
-                   │              Cleaning
-                   │              Anomaly Detection
-                   │              Forecast Preparation
-                   │              Segmentation
+                    ┌─────────┴───────────────────┐
+                    ▼                             ▼
+              ┌──────────┐                   ┌──────────┐
+              │   SQL    │                   │  PYTHON  │
+              │ ANALYSIS │                   │ ANALYSIS │
+              └────┬─────┘                   └────┬─────┘
+                   │                              │
+                   │                              |
+                   |                      01- Data Quality
+                   │                      02- Cleaning
+                   │                      03- Anomaly Detection
+                   │                      04- Forecast Preparation
+                   │                      05- Segmentation
                    │
              28 Business Questions
                    │
               Validation
-                   │                   │
-                   └─────────┬─────────┘
+                   │                              │
+                   └─────────┬────────────────────┘
                              ▼
-                     BUSINESS INSIGHTS
+                    Insights + Keyfindings
                              │
                              ▼
-                    ANALYTICAL OUTPUTS
+                    POWER BI(dashboards)
                              │
                              ▼
-                         POWER BI
-                             │
-                             ▼
-                     BUSINESS VALUE
+                       BUSINESS VALUE
 
 # 01_project-keystore
 
