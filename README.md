@@ -1,43 +1,44 @@
 # My Repo Structure Overview
-                        DATA SOURCE
-                             │
-                  ┌──────────▼──────────┐
-                  │   FIREBIRD EPOS     │
-                  │      DATABASE       │
-                  └──────────┬──────────┘
-                             │
+                    EPOS FIREBIRD DATABASE
+                              │
+                              ▼
                            DBeaver
-                             │
-                  ┌──────────▼──────────┐
-                  │   152 EXTRACTED     │
-                  │        CSVs         │
-                  └──────────┬──────────┘
-                             │
-                     RELEVANT DATA
-                             │
-              ┌──────────────┴──────────────┐
-              │                             │
-              ▼                             ▼
-       ┌──────────────┐              ┌──────────────┐
-       │ SQL ANALYSIS │              │PYTHON ANALYSIS│
-       └──────┬───────┘              └──────┬───────┘
-              │                             │
-       28 BUSINESS                    ┌──────┼──────┐
-        QUESTIONS                     │      │      │
-              │                    AUDIT CLEANING ANOMALY
-        VALIDATION                    │      │      │
-              │                   FORECAST SEGMENTATION
-              │                             │
-              └──────────────┬──────────────┘
+                              │
+                              ▼
+                       152 CSV EXTRACTS
+                              │
+                              ▼
+                        RELEVANT DATASET
+                              │
+                    ┌─────────┴─────────┐
+                    ▼                   ▼
+              ┌──────────┐        ┌──────────┐
+              │   SQL    │        │  PYTHON  │
+              │ ANALYSIS │        │ ANALYSIS │
+              └────┬─────┘        └────┬─────┘
+                   │                   │
+                   │              Data Quality
+                   │              Cleaning
+                   │              Anomaly Detection
+                   │              Forecast Preparation
+                   │              Segmentation
+                   │
+             28 Business Questions
+                   │
+              Validation
+                   │                   │
+                   └─────────┬─────────┘
+                             ▼
+                     BUSINESS INSIGHTS
                              │
                              ▼
-                    BUSINESS INSIGHTS
-                             |
-                             ▼
-                     POWER BI REPORTING
+                    ANALYTICAL OUTPUTS
                              │
                              ▼
-                      BUSINESS VALUE
+                         POWER BI
+                             │
+                             ▼
+                     BUSINESS VALUE
 
 # 01_project-keystore
 
