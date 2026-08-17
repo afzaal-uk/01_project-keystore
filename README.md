@@ -4,33 +4,40 @@ Sales analysis using **SQL, Python and Power BI**
 
 # Retail Sales Analysis — Keystore Project
 
-A hands-on retail sales analytics project built using **SQL, Python and Power BI**.
+A retail sales analysis built using **SQL, Python and Power BI**, using real-world
+retail EPOS data to answer practical business questions and demonstrate an
+end-to-end analytics workflow.
 
-The project uses real retail EPOS data to investigate sales, profit, product performance,
-data quality, anomalies, forecasting patterns and product segmentation.
+Created by a recent Data Science graduate as a hands-on portfolio project.
 
 See the full [28-question analysis plan](business-questions.md) for the business
-questions driving the SQL analysis, and the [`sql/`](sql/) folder for the queries
-and detailed findings.
+questions driving this project, and the [`sql/`](sql/) folder for the queries and
+detailed findings.
 
 ---
 
 ## Overview
 
 This project takes real retail EPOS data — invoices, takings, product records
-and sales history — and turns it into practical business insights.
+and sales history — and turns it into clear business insights.
 
-The analysis was designed around questions a shop owner or manager would actually care about:
+The project combines:
+
+- **SQL** for business analysis and data validation
+- **Python** for data processing, anomaly detection, forecasting preparation
+  and product segmentation
+- **Power BI** for interactive business reporting
+
+The goal was to answer questions a shop owner or manager actually cares about:
 
 ![10 years RAW data overview](images/Rawdata.png)
 
 - Where is the profit really coming from?
-- Which products generate the most value?
-- Which products have weak performance?
-- How are sales trending over time?
-- Are there unusual sales patterns that require investigation?
-- Which products should be prioritised?
-- Can historical sales be prepared for forecasting?
+- Which products make the most money, and which lose money?
+- How are sales trending?
+- Which products are performing unusually?
+- Which products have high sales and strong margins?
+- How can the data be prepared for future sales forecasting?
 
 ---
 
@@ -39,21 +46,22 @@ The analysis was designed around questions a shop owner or manager would actuall
 The data was extracted from a **Firebird database**, covering tables such as
 `SALES_HISTORY`, `INVDET`, `INVHEAD`, `TAKINGS`, `PRODUCT` and `PAYMENT`.
 
-The core Python analysis focuses on the cleaned 2025 sales history dataset,
-containing approximately **304,875 transaction-level rows**.
+The core analysis focuses on the 2025 trading year.
+
+`SALES_HISTORY` contains approximately **304,875 rows**.
 
 > **Note:** The raw sales data is confidential business data and is **not included**
-> in this repository. Screenshots are provided for context, while the code,
-> queries and dashboards demonstrate the analytical work performed on the data.
+> in this repository. The code, queries and dashboard shown here use it for
+> analysis only.
 
 ---
 
 ## Tools Used
 
-- **SQL** — DBeaver / Firebird for querying and validating the source database
+- **SQL** — DBeaver / Firebird
 - **Python** — pandas, NumPy, pathlib, logging and time
-- **Power BI** — interactive business dashboards and visualisation
-- **GitHub** — project organisation, documentation and version control
+- **Power BI** — interactive dashboards
+- **GitHub** — project version control and documentation
 
 ---
 
@@ -61,21 +69,23 @@ containing approximately **304,875 transaction-level rows**.
 
 ## 1. SQL Business Analysis
 
-I created and validated **28 SQL queries** based on real business questions.
+I created **28 SQL queries** based on practical retail business questions.
 
 The analysis covers:
 
 - Sales and revenue analysis
 - Product performance
-- Profit analysis
-- Category performance
+- Profitability
+- Category analysis
 - Monthly and daily trends
-- Ranking and top-performing products
+- Top and bottom products
+- Ranking
 - Window functions
 - Subqueries
-- Business-focused aggregations
+- Business validation
 
-The SQL analysis was also used to validate important characteristics of the source data before reporting results.
+The SQL analysis was also used to validate important findings before presenting
+them in the dashboards.
 
 See the [`sql/`](sql/) folder for the complete analysis.
 
@@ -83,12 +93,16 @@ See the [`sql/`](sql/) folder for the complete analysis.
 
 ## 2. Data Validation
 
-One of the most important findings was that the `GROSS_PROFIT` field was misleading.
+One of the most important findings was identifying a misleading field in the
+source data.
 
-The field actually stores a **margin percentage**, rather than monetary gross profit.
-Therefore, summing the field would produce an incorrect business result.
+The `GROSS_PROFIT` column actually stores a **margin percentage**, rather than
+a monetary profit value.
 
-I validated this against sample records and calculated true monetary profit using:
+Therefore, summing `GROSS_PROFIT` as if it were monetary profit would produce
+misleading results.
+
+I validated this against sample records and calculated true profit using:
 
 ```text
 (SELL - COST) × QTY
