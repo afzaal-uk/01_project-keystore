@@ -1,43 +1,43 @@
-# REPO STRUCTURE
-                
-                EPOS FIREBIRD DATASET
-                         │
-                      DBeaver
-                         │
-                ETRACT All 152 CSVs
-                         |
-                PICKED IMPORTANT ONE
-          ┌──────────────┼──────────────┐
-          │              │              │
-    SALES_HISTORY      PRODUCT        TAKINGS
-          │              │              │
-          └──────────────┼──────────────┘
-                         ▼
-                  SQL ANALYSIS
-                         │
-              ┌──────────┴──────────┐
-              │                     │
-    28 BUSINESS QUESTIONS           VALIDATION
-              │                     │
-              └──────────┬──────────┘
-                         ▼
-                 BUSINESS INSIGHTS
-                         │
-                         ▼
-                  PYTHON ANALYSIS
-                         │
-       ┌─────────┬───────┼────────┬─────────┐
-       ▼         ▼       ▼        ▼         ▼
-     Audit    Cleaning  Anomaly  Forecast  Segmentation
-                         │
-                         ▼
-                   ANALYTICAL OUTPUTS
-                         │
-                         ▼
-                     POWER BI
-                         │
-                         ▼
-                  BUSINESS VALUE
+# My Repo Structure Overview
+                        DATA SOURCE
+                             │
+                  ┌──────────▼──────────┐
+                  │   FIREBIRD EPOS     │
+                  │      DATABASE       │
+                  └──────────┬──────────┘
+                             │
+                           DBeaver
+                             │
+                  ┌──────────▼──────────┐
+                  │   152 EXTRACTED     │
+                  │        CSVs         │
+                  └──────────┬──────────┘
+                             │
+                     RELEVANT DATA
+                             │
+              ┌──────────────┴──────────────┐
+              │                             │
+              ▼                             ▼
+       ┌──────────────┐              ┌──────────────┐
+       │ SQL ANALYSIS │              │PYTHON ANALYSIS│
+       └──────┬───────┘              └──────┬───────┘
+              │                             │
+       28 BUSINESS                    ┌──────┼──────┐
+        QUESTIONS                     │      │      │
+              │                    AUDIT CLEANING ANOMALY
+        VALIDATION                    │      │      │
+              │                   FORECAST SEGMENTATION
+              │                             │
+              └──────────────┬──────────────┘
+                             │
+                             ▼
+                    BUSINESS INSIGHTS
+                             |
+                             ▼
+                     POWER BI REPORTING
+                             │
+                             ▼
+                      BUSINESS VALUE
 
 # 01_project-keystore
 
