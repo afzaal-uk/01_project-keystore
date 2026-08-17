@@ -1,3 +1,42 @@
+                EPOS FIREBIRD DATASET
+                         │
+                      DBeaver
+                         │
+                ETRACT All 152 CSVs
+                         |
+                PICKED IMPORTANT ONE
+          ┌──────────────┼──────────────┐
+          │              │              │
+    SALES_HISTORY      PRODUCT        TAKINGS
+          │              │              │
+          └──────────────┼──────────────┘
+                         ▼
+                  SQL ANALYSIS
+                         │
+              ┌──────────┴──────────┐
+              │                     │
+    28 BUSINESS QUESTIONS           VALIDATION
+              │                     │
+              └──────────┬──────────┘
+                         ▼
+                 BUSINESS INSIGHTS
+                         │
+                         ▼
+                  PYTHON ANALYSIS
+                         │
+       ┌─────────┬───────┼────────┬─────────┐
+       ▼         ▼       ▼        ▼         ▼
+     Audit    Cleaning  Anomaly  Forecast  Segmentation
+                         │
+                         ▼
+                   ANALYTICAL OUTPUTS
+                         │
+                         ▼
+                     POWER BI
+                         │
+                         ▼
+                  BUSINESS VALUE
+
 # 01_project-keystore
 
 Sales analysis using Python, SQL and Power BI
