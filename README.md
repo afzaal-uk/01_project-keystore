@@ -1,108 +1,151 @@
 # 01_project-keystore
 
-Sales analysis using **SQL, Python and Power BI**
+## Retail Sales Analysis — Keystore Project
 
-# Retail Sales Analysis — Keystore Project
+**End-to-end retail sales analysis using SQL, Python and Power BI**
 
-A retail sales analysis built using **SQL, Python and Power BI**, using real-world
-retail EPOS data to answer practical business questions and demonstrate an
-end-to-end analytics workflow.
+A hands-on retail analytics project built using real-world EPOS sales data. The project combines SQL-based business analysis, Python data-processing pipelines and statistical analysis, and Power BI dashboards to turn raw transactional data into actionable business insights.
 
-Created by a recent Data Science graduate as a hands-on portfolio project.
-
-See the full [28-question analysis plan](business-questions.md) for the business
-questions driving this project, and the [`sql/`](sql/) folder for the queries and
-detailed findings.
+The project was developed around real retail business questions rather than a purely academic dataset.
 
 ---
 
-## Overview
+# Project Overview
 
-This project takes real retail EPOS data — invoices, takings, product records
-and sales history — and turns it into clear business insights.
+This project takes real retail EPOS data — including invoices, takings, product records and sales history — and turns it into structured analysis and business intelligence.
 
-The project combines:
+The main objective was to answer questions a retail manager or business owner would actually care about:
 
-- **SQL** for business analysis and data validation
-- **Python** for data processing, anomaly detection, forecasting preparation
-  and product segmentation
-- **Power BI** for interactive business reporting
-
-The goal was to answer questions a shop owner or manager actually cares about:
+- Where is the profit really coming from?
+- Which products generate the most revenue and profit?
+- Which products are underperforming?
+- How are sales changing over time?
+- Are there unusual sales patterns that require investigation?
+- Which products should be treated as high-value products?
+- Can historical sales data be prepared for forecasting?
+- Can the analytical workflow be automated using Python?
+- Can the results be presented clearly through Power BI?
 
 ![10 years RAW data overview](images/Rawdata.png)
 
-- Where is the profit really coming from?
-- Which products make the most money, and which lose money?
-- How are sales trending?
-- Which products are performing unusually?
-- Which products have high sales and strong margins?
-- How can the data be prepared for future sales forecasting?
+---
+
+# The Data
+
+The data was extracted from a **Firebird database** used by a retail EPOS system.
+
+The source database contains multiple business tables, including:
+
+- `SALES_HISTORY`
+- `INVDET`
+- `INVHEAD`
+- `TAKINGS`
+- `PRODUCT`
+- `PAYMENT`
+
+The core sales analysis focuses on the 2025 trading year.
+
+The `SALES_HISTORY` dataset contains approximately **304,875 rows**.
+
+> **Data privacy:**  
+> The original raw sales data is confidential business data and is therefore **not included in this repository**. Screenshots are provided where appropriate to demonstrate the structure and scale of the source data.
 
 ---
 
-## The Data
+# Tools & Technologies
 
-The data was extracted from a **Firebird database**, covering tables such as
-`SALES_HISTORY`, `INVDET`, `INVHEAD`, `TAKINGS`, `PRODUCT` and `PAYMENT`.
+## SQL
 
-The core analysis focuses on the 2025 trading year.
+**Firebird / DBeaver**
 
-`SALES_HISTORY` contains approximately **304,875 rows**.
+Used for:
 
-> **Note:** The raw sales data is confidential business data and is **not included**
-> in this repository. The code, queries and dashboard shown here use it for
-> analysis only.
-
----
-
-## Tools Used
-
-- **SQL** — DBeaver / Firebird
-- **Python** — pandas, NumPy, pathlib, logging and time
-- **Power BI** — interactive dashboards
-- **GitHub** — project version control and documentation
-
----
-
-# What I Did
-
-## 1. SQL Business Analysis
-
-I created **28 SQL queries** based on practical retail business questions.
-
-The analysis covers:
-
-- Sales and revenue analysis
-- Product performance
-- Profitability
-- Category analysis
-- Monthly and daily trends
-- Top and bottom products
-- Ranking
-- Window functions
+- Business-question analysis
+- Aggregation
+- Joins
 - Subqueries
-- Business validation
+- Window functions
+- Ranking
+- Running totals
+- Historical comparisons
+- Product and category analysis
+- Data validation
 
-The SQL analysis was also used to validate important findings before presenting
-them in the dashboards.
-
-See the [`sql/`](sql/) folder for the complete analysis.
+The SQL folder contains **28 business-focused queries**.
 
 ---
 
-## 2. Data Validation
+## Python
 
-One of the most important findings was identifying a misleading field in the
-source data.
+**Python 3**
 
-The `GROSS_PROFIT` column actually stores a **margin percentage**, rather than
-a monetary profit value.
+Main libraries:
 
-Therefore, summing `GROSS_PROFIT` as if it were monetary profit would produce
-misleading results.
+- `pandas`
+- `numpy`
+- `pathlib`
+- `logging`
+- `time`
 
-I validated this against sample records and calculated true profit using:
+Python was used for tasks that go beyond simple SQL querying, including:
+
+- Automated data processing
+- Data-quality validation
+- Reusable transformation pipelines
+- Statistical anomaly detection
+- Time-series feature engineering
+- Rolling averages
+- Lag features
+- Product segmentation
+- Automated reporting
+- Exporting analytical results
+
+---
+
+## Power BI
+
+Used for:
+
+- Interactive dashboards
+- KPI reporting
+- Sales analysis
+- Profit analysis
+- Product performance
+- Business-level visualisation
+
+Dashboard screenshots are included in the `PowerBI/` folder.
+
+---
+
+# Project Architecture
+
+The project follows a simplified analytical workflow:
 
 ```text
-(SELL - COST) × QTY
+Firebird EPOS Database
+        │
+        ▼
+   SQL Analysis
+        │
+        ├──────────────► Business Findings
+        │
+        ▼
+    Cleaned Data
+        │
+        ▼
+      Python
+        │
+        ├── Data Quality
+        ├── Data Cleaning
+        ├── Anomaly Detection
+        ├── Forecast Preparation
+        └── Product Segmentation
+        │
+        ▼
+   Analytical Outputs
+        │
+        ▼
+     Power BI
+        │
+        ▼
+ Business Intelligence
